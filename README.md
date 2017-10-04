@@ -1,2 +1,2 @@
 # mybot
-boy in python to slack
+bot in python to slack
