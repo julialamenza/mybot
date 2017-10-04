@@ -2,7 +2,7 @@ import time
 from slackclient import SlackClient
 import subprocess
 
-BOT_TOKEN = "xoxb-251353056034-n4LZ4inSYXpajuyVBU9hNSKl"
+BOT_TOKEN = "<API TOKEN>"
 CHANNEL_NAME = "general"
 
 def main():
