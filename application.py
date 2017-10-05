@@ -3,7 +3,7 @@ from slackclient import SlackClient
 import subprocess 
 from subprocess import call
 
-BOT_TOKEN = ""
+BOT_TOKEN = "xoxb-251353056034-d5hQfyGwuf2yRxdE8dmLEeV3"
 CHANNEL_NAME = "general"
 
 def main():
