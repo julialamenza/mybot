@@ -2,7 +2,7 @@ import time
 from slackclient import SlackClient
 import subprocess
 
-BOT_TOKEN = "<API TOKEN>"
+BOT_TOKEN = "xoxb-251353056034-n4LZ4inSYXpajuyVBU9hNSKl"
 CHANNEL_NAME = "general"
 
 def main():
@@ -27,7 +27,11 @@ def main():
 
                 if message == 'deploy':
                     output = subprocess.Popen(['nohup', '/Users/julia/bot/test.sh'], stdout=subprocess.PIPE).communicate()[0]
-                    sc.rtm_send_message(CHANNEL_NAME, "<@{}> You wrote {}. Response: {}".format(user, message, output))
+                    import ipdb; ipdb.set_trace()
+                    if output == 'erro':
+                        sc.rtm_send_message(CHANNEL_NAME, "<@{}> DEU ERRO MALANDRAGE! ".format(user))
+                    else:
+                        sc.rtm_send_message(CHANNEL_NAME, "<@{}> Checagem feita com sucesso. Tudo ok. Voce tem certeza que deseja realuzar o deploy? ".format(user))
 
             # Sleep for half a second
             time.sleep(0.5)
