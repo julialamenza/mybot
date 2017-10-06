@@ -29,7 +29,7 @@ def main():
                 if message == 'd':
                     #output = subprocess.Popen(['nohup', '/Users/julia/bot/test.sh'], stdout=subprocess.PIPE).communicate()[0]
                     output = call("/Users/julia/bot/check.sh", shell=True)  
-                    import ipdb; ipdb.set_trace()
+                    #import ipdb; ipdb.set_trace()
                     if output == 1:
                         sc.rtm_send_message(CHANNEL_NAME, "<@{}> DEU ERRO MALANDRAGE! ".format(user))
                     else:
