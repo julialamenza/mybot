@@ -2,8 +2,8 @@ import time
 from slackclient import SlackClient
 import subprocess 
 from subprocess import call
-
-BOT_TOKEN = ""
+cmd = './check.sh'
+BOT_TOKEN = "xoxb-251353056034-8naDytRqvE4Hjm3y9WD7Wje0"
 CHANNEL_NAME = "general"
 
 def main():
@@ -14,6 +14,8 @@ def main():
     if sc.rtm_connect():
         # Send first message
         sc.rtm_send_message(CHANNEL_NAME, "I'm ALIVE!!!")
+
+        #deploy_in_progress = False
 
         while True:
             # Read latest messages
@@ -27,16 +29,20 @@ def main():
                 # import ipdb; ipdb.set_trace()
 
                 if message == 'd':
+                    #deploy_in_progress = True
                     #output = subprocess.Popen(['nohup', '/Users/julia/bot/test.sh'], stdout=subprocess.PIPE).communicate()[0]
-                    output = call("/Users/julia/bot/check.sh", shell=True)  
-                    #import ipdb; ipdb.set_trace()
+                    output = call(cmd, shell=True)
+                    import ipdb; ipdb.set_trace()
                     if output == 1:
                         sc.rtm_send_message(CHANNEL_NAME, "<@{}> DEU ERRO MALANDRAGE! ".format(user))
                     else:
                         sc.rtm_send_message(CHANNEL_NAME, "<@{}> Checagem feita com sucesso. Tudo ok. Voce tem certeza que deseja realuzar o deploy? ".format(user))
 
+                #if message == 'y' and deploy_in_progress
+                    # executa o segundo script
+
             # Sleep for half a second
-            time.sleep(0.5)
+        time.sleep(0.5)
     else:
         print("Couldn't connect to slack")
 
